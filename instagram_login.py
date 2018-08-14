@@ -3,8 +3,8 @@ import json
 
 BASE_URL = 'https://www.instagram.com'
 LOGGIN_URL = BASE_URL + 'accounts/login/?hl=en'
-USERNAME = 'coleramos425'
-PASSWD = 'Bellevue97'
+USERNAME = 'ENTER_USERNAME'
+PASSWD = 'ENTER_PASSWORD_HERE'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
 
 session = requests.Session()
