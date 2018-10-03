@@ -2,8 +2,6 @@ from selenium import webdriver
 import time
 import getpass
 
-#username = 'nylm2017_bellevue'
-#password = 'coleramos1999'
 username = input('What is your username? ')
 password = getpass.getpass('What is your password? ')
 userSearch = input('Who\'s the user you\'d like to search? ')
