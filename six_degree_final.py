@@ -9,6 +9,7 @@ userSearch = input('Who\'s the user you\'d like to search? ')
 url = 'https://www.instagram.com/accounts/login/'
 
 #driver = webdriver.Chrome("C:\Users\Cole\Downloads\chromedriver")
+#Mitch's driver = webdriver.Chrome("C:\Users\Mitch Hansen\Documents\chromedriver")
 driver = webdriver.Chrome("/Users/Cole/Downloads/chromedriver")
 driver.get(url)
 
