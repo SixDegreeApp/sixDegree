@@ -1,8 +1,12 @@
 from selenium import webdriver
 import time
+import getpass
 
-username = 'nylm2017_bellevue'
-password = 'coleramos1999'
+#username = 'nylm2017_bellevue'
+#password = 'coleramos1999'
+username = input('What is your username? ')
+password = getpass.getpass('What is your password? ')
+userSearch = input('Who\'s the user you\'d like to search? ')
 
 url = 'https://www.instagram.com/accounts/login/'
 
@@ -15,13 +19,13 @@ driver.find_element_by_name('password').send_keys(password)
 
 time.sleep(2)
 
-driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/article/div/div[1]/div/form/span/button').click()
+driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/article/div/div[1]/div/form/div[3]/button').click()
 
 ######      We are now logged in    #######
 
 time.sleep(4)
 
-userSearch = 'maggie_horton11'
+#userSearch = 'pharrell"
 user_url = 'https://www.instagram.com/' + userSearch + '/?__a=1'
 driver.get(user_url)
 
@@ -34,31 +38,35 @@ tempID = ""
 tempFollowerCount = ""
 tempFollowingCount = ""
 
-#find user id,follower count, following count
+#find user id
 for x in range(infoPage.find('profilePage_') + 12, len(infoPage)):
     if infoPage[x] == "\"":
         break
     tempID += infoPage[x]
+
+#find user follower count
 for x in range(infoPage.find('edge_followed_by":{"count":') + 27, len(infoPage)):
     if infoPage[x] == "}":
         break
     tempFollowerCount += infoPage[x]
+
+#find user following count
 for x in range(infoPage.find('edge_follow":{"count":') + 22, len(infoPage)):
     if infoPage[x] == "}":
         break
     tempFollowingCount += infoPage[x]
-print(int(tempFollowerCount)/50)
+
 #create the list of followers from id number        THIS WILL ALL BE INSIDE A FOR LOOP FOR EACH 50 ENTRY
 iterations = 0
 follower_list = []
 endCursor = ""
-tempNumStore = float(int(tempFollowerCount)/50)
+tempNumStore = float(int(tempFollowingCount)/50)
 if tempNumStore.is_integer() == False:
     numToIt = int(tempNumStore) + 1
 else:
     numToIt = int(tempNumStore)
-while (iterations != numToIt):
-    driver.get('http://instagram.com/graphql/query/?query_hash=37479f2b8209594dde7facb0d904896a&variables={"id":"' + tempID + '","first":' + str(50) + ',"after":"' + endCursor + '"}')
+while (iterations != numToIt+1):
+    driver.get('http://instagram.com/graphql/query/?query_hash=58712303d941c6855d4e888c5f0cd22f&variables={"id":"' + tempID + '","first":' + str(4000) + ',"after":"' + endCursor + '"}')
     endCursor = ""
     html_soup = BeautifulSoup(driver.page_source, 'html.parser')
     infoPage = str(html_soup.pre.contents)
@@ -84,3 +92,12 @@ while (iterations != numToIt):
 
 print(len(follower_list))
 print(iterations)
+#print(*follower_list, sep = '\n')
+
+###########             NOW WE HAVE TO BEGIN BIDIRECTIONAL BREATH FIRST SEARCH          ###########
+destination = "C:\\Users\\Cole\\source\\repos\\six_degree_graph\\six_degree_graph\\"
+file = open(destination + userSearch, 'w')
+for follower_list in follower_list:
+    file.write(follower_list + '\n')
+file.close()
+print("File has been created!")
