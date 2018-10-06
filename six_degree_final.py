@@ -94,6 +94,8 @@ print(iterations)
 #print(*follower_list, sep = '\n')
 
 ###########             NOW WE HAVE TO BEGIN BIDIRECTIONAL BREATH FIRST SEARCH          ###########
+
+#My file location "C:\\Users\\Mitch Hansen\\Documents\\6 Degree"
 destination = "C:\\Users\\Cole\\source\\repos\\six_degree_graph\\six_degree_graph\\"
 file = open(destination + userSearch, 'w')
 for follower_list in follower_list:

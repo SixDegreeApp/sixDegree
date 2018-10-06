@@ -2,8 +2,9 @@
    I will change after class and homework.
 */
 
-#include<iostream> 
+#include<iostream>
 #include <list> 
+#include <string>
 
 using namespace std;
 
@@ -12,14 +13,13 @@ using namespace std;
 class Graph
 {
 	int V;    // No. of vertices 
-
 			  // Pointer to an array containing adjacency 
 			  // lists 
 	list<int> *adj;
 public:
 	Graph(int V);  // Constructor 
 
-				   // function to add an edge to graph 
+	// function to add an edge to graph 
 	void addEdge(int v, int w);
 
 	// prints BFS traversal from a given source s 
@@ -76,6 +76,7 @@ void Graph::BFS(int s)
 	}
 }
 
+/*
 // Driver program to test methods of graph class 
 int main()
 {
@@ -91,6 +92,5 @@ int main()
 	cout << "Following is Breadth First Traversal "
 		<< "(starting from vertex 2) \n";
 	g.BFS(2);
-
 	return 0;
-}
+}*/
