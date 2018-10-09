@@ -3,6 +3,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "user.cpp"
+#include "graph.cpp"
 
 using namespace std;
 
@@ -28,5 +30,11 @@ int main()
 	else
 		cout << "Error opening file. Check spelling." << endl;
 
+	/****************************BEGIN DUAL BFS******************************/
+	//First we will turn every follower into a user object. Could do in above user loop.
+	
+	// Create a graph given in the above diagram 
+	Graph g();// Insert graph size based on Followers data
+	g.addEdge(); // Insert an edge by grabbing the Users ID and connecting it to either the orig user or the target account.
 	return 0;
 }
