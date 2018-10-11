@@ -15,7 +15,7 @@ int main()
 	string temp;
 	vector<int> listOfNames;
 
-	cout << "What is the name of the user? ";
+	cout << "What is the string of the user? ";
 	getline(cin, user);
 	ifstream inFile;
 	inFile.open(user);
@@ -32,9 +32,10 @@ int main()
 
 	/****************************BEGIN DUAL BFS******************************/
 	//First we will turn every follower into a user object. Could do in above user loop.
-	
-	// Create a graph given in the above diagram 
-	Graph g();// Insert graph size based on Followers data
-	g.addEdge(); // Insert an edge by grabbing the Users ID and connecting it to either the orig user or the target account.
+	Graph listOfIds();// Insert graph size based on Followers data
+	for (int iter = 0; iter < listOfNames.size(); iter++) {
+		listOfIds.addEdge(listOfNames[iter]); // Insert an edge by grabbing the Users ID and connecting it to either the orig user or the target account.
+	}
+	// Create a graph given in the above diagram.
 	return 0;
 }
