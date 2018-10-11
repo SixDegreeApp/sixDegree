@@ -2,7 +2,7 @@
    I will change after class and homework.
 */
 
-#include<iostream>
+#include <iostream>
 #include <list> 
 #include <string>
 

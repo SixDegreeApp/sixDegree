@@ -13,7 +13,7 @@ int main()
 	//Opening file sent from Python program
 	string user;
 	string temp;
-	vector<string> listOfNames;
+	vector<int> listOfNames;
 
 	cout << "What is the name of the user? ";
 	getline(cin, user);
