@@ -37,7 +37,7 @@ void Graph::addEdge(int v, int w)
 	adj[v].push_back(w); // Add w to v’s list. 
 }
 
-void Graph::BFS(int s)
+bool Graph::BFS(int s, int target)
 {
 	// Mark all the vertices as not visited 
 	bool *visited = new bool[V];
@@ -48,6 +48,9 @@ void Graph::BFS(int s)
 	list<int> queue;
 
 	// Mark the current node as visited and enqueue it 
+	if (visited[s] == target) {
+		return true;
+	}
 	visited[s] = true;
 	queue.push_back(s);
 
@@ -74,4 +77,5 @@ void Graph::BFS(int s)
 			}
 		}
 	}
+	return false;
 }
