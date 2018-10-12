@@ -22,7 +22,8 @@ int main()
 	if (inFile.is_open()) {
 		cout << "File is open!" << endl;
 		while (getline(inFile, temp)) {
-			listOfNames.push_back(temp);
+			int tempInt = stoi(temp);
+			listOfNames.push_back(tempInt);
 			cout << temp << endl;
 		}
 		inFile.close();
@@ -36,6 +37,9 @@ int main()
 	for (int iter = 0; iter < listOfNames.size(); iter++) {
 		listOfIds.addEdge(listOfNames[iter]); // Insert an edge by grabbing the Users ID and connecting it to either the orig user or the target account.
 	}
+
+	//Perform BFS with above graph.
+	listOfIds.bfs();
 	// Create a graph given in the above diagram.
 	return 0;
 }
