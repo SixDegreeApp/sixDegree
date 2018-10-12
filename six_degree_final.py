@@ -79,14 +79,14 @@ while (iterations != numToIt+1):
 
     temp_username = ""
     counter = 0
-    while (infoPage.find('"username":"', counter) != -1):
-         for x in range(infoPage.find('"username":"', counter) + 12, len(infoPage)):
+    while (infoPage.find('"id":"', counter) != -1):
+         for x in range(infoPage.find('"id":"', counter) + 6, len(infoPage)):
              if infoPage[x] == "\"":
                  break
              temp_username += infoPage[x]
          follower_list.append(temp_username)
          temp_username = ""
-         counter = infoPage.find('"username":', counter) + 13
+         counter = infoPage.find('{"id":', counter) + 7#add 2
     iterations+=1
 
 print(len(follower_list))
