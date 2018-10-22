@@ -23,7 +23,7 @@ public:
 	void addEdge(int v, int w);
 
 	// prints BFS traversal from a given source s 
-	void BFS(int s);
+	bool BFS(int s, int target);
 };
 
 Graph::Graph(int V)
