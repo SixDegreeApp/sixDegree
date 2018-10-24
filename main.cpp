@@ -15,7 +15,7 @@ int main()
 	string temp;
 	vector<int> listOfNames;
 
-	cout << "What is the string of the user? ";
+	cout << "What is the username of the person you're searching? ";
 	getline(cin, user);
 	ifstream inFile;
 	inFile.open(user);
