@@ -96,7 +96,7 @@ print(iterations)
 ###########             NOW WE HAVE TO BEGIN BIDIRECTIONAL BREATH FIRST SEARCH          ###########
 
 #My file location "C:\\Users\\Mitch Hansen\\Documents\\6 Degree"
-destination = "C:\\Users\\Cole\\source\\repos\\six_degree_graph\\six_degree_graph\\"
+destination = "C:\\Users\\Cole\\source\\repos\\sixDegree\\sixDegree\\"
 file = open(destination + userSearch, 'w')
 for follower_list in follower_list:
     file.write(follower_list + '\n')
